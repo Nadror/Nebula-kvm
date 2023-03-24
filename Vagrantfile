@@ -1,6 +1,6 @@
 Vagrant.configure("2") do |config|
 
-    # Définition du tableau de machines
+    # Definition du tableau de machines
     machines = [
       { name: "panel", ip: "192.168.50.10", cpus: 1, memory: 1024},
       { name: "kvm-1", ip: "192.168.50.21", cpus: 1, memory: 1024},
@@ -11,7 +11,14 @@ Vagrant.configure("2") do |config|
   
     # Configuration de chaque machine dans le tableau
     machines.each do |machine|
-  
+
+      config.vm.provision "shell", path: "scripts/disable_ipv6.sh"
+
+      # Pour les machines opennebula  
+      if machine[:name] == "panel" || machine[:name] == "kvm-1" || machine[:name] == "kvm-2"
+        config.vm.provision "shell", path: "scripts/enable_opennebula_repo.sh"
+      end
+
       config.vm.define machine[:name] do |node|
   
         # Configuration de la machine
