@@ -19,6 +19,10 @@ Vagrant.configure("2") do |config|
         config.vm.provision "shell", path: "scripts/enable_opennebula_repo.sh"
       end
 
+      if machine[:name] == "kvm-1" || machine[:name] == "kvm-2"
+        config.vm.provision "shell", path: "scripts/install_opennebula_node_kvm.sh"
+      end
+
       config.vm.define machine[:name] do |node|
   
         # Configuration de la machine
