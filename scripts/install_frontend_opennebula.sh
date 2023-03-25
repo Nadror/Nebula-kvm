@@ -1,13 +1,19 @@
 #!/bin/bash
 
-apt install opennebula opennebula-sunstone opennebula-gate opennebula-flow -y
+# Installation d'OpenNebula et des dépendances
+if ! dpkg -s opennebula > /dev/null 2>&1; then
+    apt update
+    apt install -y opennebula opennebula-sunstone opennebula-gate opennebula-flow
+    yes | sudo /usr/share/one/install_gems
+fi
 
-yes | /usr/share/one/install_gems
+# Configuration de l'authentification
+if ! grep -q "^oneadmin:!Passe123\?$" /var/lib/one/.one/one_auth; then
+    echo "oneadmin:!Passe123?" > /var/lib/one/.one/one_auth
+fi
 
-su oneadmin
-echo "oneadmin:!Passe123?" > /var/lib/one/.one/one_auth
-echo "oneuser:!Passe123" | chpasswd
+echo "oneadmin:!Passe123?" | sudo chpasswd
 
-systemctl start opennebula opennebula-sunstone
-systemctl enable opennebula opennebula-sunstone
-
+# Démarrage et activation des services
+sudo systemctl start opennebula opennebula-sunstone
+sudo systemctl enable opennebula opennebula-sunstone

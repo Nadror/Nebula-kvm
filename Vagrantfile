@@ -34,6 +34,7 @@ Vagrant.configure("2") do |config|
       end
 
       if machine[:name] == "panel"
+        node.vm.provision "shell", path: "scripts/install_frontend_opennebula.sh"
 #
       end
 
