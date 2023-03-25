@@ -25,8 +25,11 @@ Vagrant.configure("2") do |config|
         vb.cpus = machine[:cpus]
       end
 
-      if machine[:name] == "panel" || machine[:name] == "kvm-1" || machine[:name] == "kvm-2"
+      if machine[:name] == "panel" || machine[:name] == "kvm-1" || machine[:name] == "kvm-2" || machine[:name] == "storage-1" || machine[:name] == "storage-2"
         node.vm.provision "shell", path: "scripts/disable_ipv6.sh"
+      end
+
+      if machine[:name] == "panel" || machine[:name] == "kvm-1" || machine[:name] == "kvm-2"
         node.vm.provision "shell", path: "scripts/enable_opennebula_repo.sh"
       end
 
@@ -35,7 +38,6 @@ Vagrant.configure("2") do |config|
       end
 
     end
-
   end
 
 end
