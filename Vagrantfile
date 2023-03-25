@@ -13,8 +13,6 @@ Vagrant.configure("2") do |config|
   machines.each do |machine|
 
     config.vm.define machine[:name] do |node|
-
-      config.vm.provision "shell", path: "scripts/disable_ipv6.sh"
       
       # Configuration de la machine
       node.vm.box = "ubuntu/focal64"
@@ -28,6 +26,7 @@ Vagrant.configure("2") do |config|
       end
 
       if machine[:name] == "panel" || machine[:name] == "kvm-1" || machine[:name] == "kvm-2"
+        node.vm.provision "shell", path: "scripts/disable_ipv6.sh"
         node.vm.provision "shell", path: "scripts/enable_opennebula_repo.sh"
       end
 
