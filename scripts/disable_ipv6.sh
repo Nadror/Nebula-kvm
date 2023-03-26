@@ -1,5 +1,9 @@
 #!/bin/bash
-echo "Disabling IPv6..."
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+
+echo -e "${RED}DISABLE IPV6...${NC}"
+
 
 # Vérifier si IPv6 est déjà désactivé
 grep -q -F 'net.ipv6.conf.all.disable_ipv6 = 1' /etc/sysctl.conf

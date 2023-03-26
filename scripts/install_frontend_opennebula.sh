@@ -1,4 +1,8 @@
 #!/bin/bash
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+
+echo -e "${RED}ENABLE FRONTEND OPENNEBULA...${NC}"
 
 # Installation d'OpenNebula et des dépendances
 if ! dpkg -s opennebula > /dev/null 2>&1; then

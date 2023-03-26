@@ -1,4 +1,8 @@
 #!/bin/bash
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+
+echo -e "${RED}Enable OpenNebula Repo...${NC}"
 
 # Test de présence de la clé
 if ! apt-key list | grep -q "OpenNebula"; then
