@@ -2,3 +2,6 @@
 .vagrant
 /.vagrant
 .share/*
+.share
+./share/*
+./share
