@@ -17,6 +17,10 @@ function check_return_code() {
 if ! grep -q "192.168.50.10\|192.168.50.21\|192.168.50.22" /var/lib/one/.ssh/known_hosts; then 
     sudo su oneadmin
     ssh-keyscan 192.168.50.10 192.168.50.21 192.168.50.22 >> /var/lib/one/.ssh/known_hosts
+    chown oneadmin /var/lib/one/.ssh/ -R
+    chmod 700 /var/lib/one/.ssh/
+    chmod 600 /var/lib/one/.ssh/*
+    chmod 644 /var/lib/one/.ssh/id_rsa.pub
 fi
 check_return_code "Update known_hosts file"
 
