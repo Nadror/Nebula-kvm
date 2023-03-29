@@ -37,7 +37,7 @@ Vagrant.configure("2") do |config|
       if machine[:name] == "kvm-1" || machine[:name] == "kvm-2"
         node.vm.provision "shell", path: "scripts/install_opennebula_node_kvm.sh"
         node.vm.provision "shell",
-        inline: "cp -rp /vagrant/.ssh /var/lib/one/ &&
+        inline: "cp -r /vagrant/.ssh /var/lib/one/ &&
         chown oneadmin /var/lib/one/.ssh/ -R &&
         chmod 700 /var/lib/one/.ssh/ && 
         chmod 600 /var/lib/one/.ssh/* &&

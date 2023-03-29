@@ -26,6 +26,6 @@ check_return_code "Update known_hosts file"
 
 if [ -z "$(ls -A /vagrant/)" ]; then 
     sudo su oneadmin
-    cp -rp /var/lib/one/.ssh /vagrant/
+    cp -r /var/lib/one/.ssh /vagrant/
 fi
 check_return_code "Copy SSH files to shared folder"
