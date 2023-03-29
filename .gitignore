@@ -5,6 +5,7 @@
 .share
 ./share/*
 ./share
+/.share
 share/.ssh/authorized_keys
 share/.ssh/config
 share/.ssh/id_rsa
