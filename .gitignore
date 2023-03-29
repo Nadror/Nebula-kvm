@@ -1,13 +1,4 @@
 .vagrant/*
 .vagrant
 /.vagrant
-.share/*
-.share
-./share/*
-./share
-/.share
-share/.ssh/authorized_keys
-share/.ssh/config
-share/.ssh/id_rsa
-share/.ssh/id_rsa.pub
-share/.ssh/known_hosts
+/share/*
