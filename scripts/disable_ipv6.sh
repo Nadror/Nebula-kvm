@@ -3,7 +3,7 @@ YELLOW='\033[0;33m'
 NC='\033[0m' # reset
 RED='\033[0;31m'
 
-echo -e "${YELLOW}disable_ipv6.sh ${NC}"
+echo -e "⌛${YELLOW}disable_ipv6.sh ${NC}"
 
 function check_return_code() {
     if [ $? -eq 0 ]; then

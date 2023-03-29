@@ -5,7 +5,7 @@ Vagrant.configure("2") do |config|
     { name: "kvm-2", ip: "192.168.50.22", cpus: 1, memory: 1024},
 #    { name: "storage-1", ip: "192.168.50.31", cpus: 1, memory: 256},
  #   { name: "storage-2", ip: "192.168.50.32", cpus: 1, memory: 256},
-    { name: "panel", ip: "192.168.50.10", cpus: 1, memory: 1224}
+    { name: "panel", ip: "192.168.50.10", cpus: 1, memory: 2048}
   ]
 
   # Configuration de chaque machine dans le tableau
@@ -36,16 +36,18 @@ Vagrant.configure("2") do |config|
 
       if machine[:name] == "kvm-1" || machine[:name] == "kvm-2"
         node.vm.provision "shell", path: "scripts/install_opennebula_node_kvm.sh"
+        node.vm.provision "shell",
+        inline: "cp -rp /vagrant/.ssh /var/lib/one/"
       end
 
       if machine[:name] == "panel"
         node.vm.provision "shell", path: "scripts/install_frontend_opennebula.sh"
         node.vm.provision "shell", path: "scripts/install_keys.sh"
 
-        if machine[:name] == "kvm-1" || machine[:name] == "kvm-2"
-          node.vm.provision "shell",
-          inline: "cp -rp /vagrant/* /var/lib/one/*"
-        end
+    #    if machine[:name] == "kvm-1" || machine[:name] == "kvm-2"
+   #       node.vm.provision "shell",
+  #        inline: "cp -rp /vagrant/* /var/lib/one/.ssh/*"
+ #       end
     end
   end
 
