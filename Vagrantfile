@@ -1,9 +1,9 @@
 Vagrant.configure("2") do |config|
   # Definition du tableau de machines
   machines = [
-    { name: "panel", ip: "192.168.50.10", cpus: 1, memory: 2048},
     { name: "kvm-1", ip: "192.168.50.21", cpus: 1, memory: 1024},
-    { name: "kvm-2", ip: "192.168.50.22", cpus: 1, memory: 1024}
+    { name: "kvm-2", ip: "192.168.50.22", cpus: 1, memory: 1024},
+    { name: "panel", ip: "192.168.50.10", cpus: 1, memory: 2048}
 #    { name: "storage-1", ip: "192.168.50.31", cpus: 1, memory: 256},
  #   { name: "storage-2", ip: "192.168.50.32", cpus: 1, memory: 256},
   ]
