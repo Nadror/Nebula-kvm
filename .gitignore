@@ -1,5 +1,3 @@
-.vagrant/*
-.vagrant
-/.vagrant
+/.vagrant/
 /share/*
 !/share/temp.txt
