@@ -2,3 +2,4 @@
 .vagrant
 /.vagrant
 /share/*
+!/share/temp.txt
