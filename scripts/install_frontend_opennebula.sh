@@ -17,7 +17,7 @@ function check_return_code() {
 # Installation d'OpenNebula et des dépendances
 if ! dpkg -s opennebula > /dev/null 2>&1; then
     apt update
-    apt install -y opennebula opennebula-sunstone opennebula-gate opennebula-flow
+    apt install -y opennebula opennebula-sunstone opennebula-gate opennebula-flow opennebula-fireedge
     yes | sudo /usr/share/one/install_gems 
 fi
 check_return_code "Install OpenNebula-frontend"
