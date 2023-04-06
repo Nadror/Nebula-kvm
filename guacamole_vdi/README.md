@@ -60,3 +60,23 @@ chmod +x add_conn.py
 chmod +x del_conn.py
 ```
 
+## Configuration de Guacamole
+
+Se rendre sur ***http://192.168.50.10:8080/guacamole***
+
+- user : guacadmin
+- mdp : guacadmin
+
+Crée un group dans Connections
+![](https://i.imgur.com/l3vEdzv.png)
+
+Création un utilisateur pour la connexion : 
+![](https://i.imgur.com/8sYxfdI.png)
+
+> !!! Bien assigner le group à l'utilisateur
+> ![](https://i.imgur.com/6WHUNSI.png)
+
+## Configuration du Service sur l'interface
+
+![](https://i.imgur.com/s1Gk3Gl.png)
+![](https://i.imgur.com/c1j7Nhu.png)

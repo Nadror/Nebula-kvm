@@ -50,4 +50,3 @@ Il suffit maintenant de redémarrer fireedge :
 ```bash
 systemctl restart opennebula-fireedge
 ```
-rt
